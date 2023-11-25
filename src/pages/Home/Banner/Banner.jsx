@@ -9,10 +9,10 @@ const Banner = () => {
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold md:text-5xl xl:text-6xl dark:text-white">
             Embrace Unconditional Love: Adopt Your Perfect Companion
           </h1>
-          <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            Transform a life—adopt a pet and make your home their forever haven.
+          <p className="max-w-2xl mb-6 font-light text-justify text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+            Transform a life: Adopt a pet and make your home their forever haven.
             Experience the joy of unconditional love and companionship. Start
-            your heartwarming journey today
+            your heartwarming journey today.
           </p>
           <a
             href="#"

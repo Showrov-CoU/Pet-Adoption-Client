@@ -1,0 +1,52 @@
+[
+    {
+      "image": "https://i.ibb.co/0mb696N/dog1.jpg",
+      "name": "Paws for a Cause",
+      "category": "Dog",
+      "maxAmount": 3000,
+      "donatedAmount": 1500,
+      "shortDesc": "Support dog shelters and rescue efforts.",
+      "longDesc": "Paws for a Cause aims to support dog shelters and rescue efforts. Your donation will help provide medical care, food, and shelter for dogs in need of a loving home.",
+
+    },
+    {
+      "image": "https://i.ibb.co/bHVr29q/cat1.jpg",
+      "name": "Whiskers Rescue Fund",
+      "category": "Cat",
+      "maxAmount": 2500,
+      "donatedAmount": 1200,
+      "shortDesc": "Rescue and care for homeless cats.",
+      "longDesc": "Whiskers Rescue Fund is dedicated to the rescue and care of homeless cats. Your donation will contribute to veterinary care, spaying/neutering, and finding loving homes for cats in need.",
+
+    },
+    {
+      "image": "https://i.ibb.co/r2yjpLz/rabbit3.jpg",
+      "name": "Hop to a Happy Home",
+      "category": "Rabbit",
+      "maxAmount": 2000,
+      "donatedAmount": 800,
+      "shortDesc": "Support the well-being of rescue rabbits.",
+      "longDesc": "Hop to a Happy Home focuses on supporting the well-being of rescue rabbits. Your donation will help provide proper housing, medical care, and adoption programs for rabbits in need.",
+
+    },
+    {
+      "image": "duck_campaign.jpg",
+      "name": "Quack Aid",
+      "category": "Duck",
+      "maxAmount": 1800,
+      "donatedAmount": 1000,
+      "shortDesc": "Contribute to the well-being of ducks.",
+      "longDesc": "Quack Aid aims to contribute to the well-being of ducks. Your donation will support initiatives for duck conservation, habitat preservation, and promoting awareness about these charming waterfowl.",
+
+    },
+    {
+      "image": "https://i.ibb.co/TgbpNKg/horse1.jpg",
+      "name": "Hooves of Hope",
+      "category": "Horse",
+      "maxAmount": 4000,
+      "donatedAmount": 2500,
+      "shortDesc": "Support rescue and rehabilitation of horses.",
+      "longDesc": "Hooves of Hope focuses on the rescue and rehabilitation of horses. Your donation will contribute to veterinary care, proper nutrition, and finding forever homes for horses in need.",
+
+    }
+]
