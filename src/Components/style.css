@@ -1,0 +1,11 @@
+.card:hover .intro {
+  height: 170px;
+}
+.text {
+  opacity: 0;
+  visibility: hidden;
+}
+.card:hover .text {
+  opacity: 1;
+  visibility: visible;
+}
