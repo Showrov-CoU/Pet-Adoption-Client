@@ -1,6 +1,17 @@
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useContext } from "react";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  // console.log(user);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((err) => console.log(err.message));
+  };
+
   const navlinks = (
     <>
       <li>
@@ -24,12 +35,22 @@ const Navbar = () => {
         </Link>
       </li>
       <li className="mt-5 md:mt-0">
-        <Link
-          className=" px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-[#57a538] hover:bg-[#4bc21c]"
-          to="/register"
-        >
-          Register
-        </Link>
+        {user ? (
+          <Link
+            to="/login"
+            className=" px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-[#57a538] hover:bg-[#4bc21c]"
+            onClick={handleLogout}
+          >
+            Logout
+          </Link>
+        ) : (
+          <Link
+            className=" px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-[#57a538] hover:bg-[#4bc21c]"
+            to="/login"
+          >
+            Login
+          </Link>
+        )}
       </li>
     </>
   );
@@ -52,8 +73,9 @@ const Navbar = () => {
           >
             <span className="sr-only">Open user menu</span>
             <img
-              className="w-8 h-8 rounded-full"
-              src="/docs/images/people/profile-picture-3.jpg"
+              className="w-10 h-10 rounded-full"
+              src={user?.photoURL}
+              // src="/docs/images/people/profile-picture-3.jpg"
               alt="user photo"
             />
           </button>
@@ -64,10 +86,10 @@ const Navbar = () => {
           >
             <div className="px-4 py-3">
               <span className="block text-sm font-semibold text-primary">
-                Bonnie Green
+                {user?.displayName}
               </span>
               <span className="block text-sm  text-gray-500 truncate ">
-                name@flowbite.com
+                {user?.email}
               </span>
             </div>
             <ul className="py-2" aria-labelledby="user-menu-button">
@@ -81,12 +103,12 @@ const Navbar = () => {
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/login"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary hover:text-white"
                 >
-                  Sign out
-                </a>
+                  Log out
+                </Link>
               </li>
             </ul>
           </div>
