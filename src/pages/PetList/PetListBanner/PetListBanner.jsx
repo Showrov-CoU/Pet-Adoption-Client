@@ -9,7 +9,7 @@ const PetListBanner = () => {
   const petsArray = ["Dog", "Cat", "Bird", "Duck", "Horse", "Rabbit"];
   const [pets, setPets] = useState([]);
   const [category, setCategory] = useState("");
-  const [searchKeyword, setSearchKeyword] = useState("");
+  // const [searchKeyword, setSearchKeyword] = useState("");
 
   // const [petdata] = usePets();
   // setPets(petdata);

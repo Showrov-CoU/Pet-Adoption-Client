@@ -7,6 +7,7 @@ import PetList from "../pages/PetList/PetList/PetList";
 import PetDetails from "../pages/PetDetails/PetDetails";
 import Donation from "../pages/Donation/Donation/Donation";
 import DonationDetails from "../pages/DonationDetails/DonationDetails/DonationDetails";
+import Dashboard from "../Layout/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -46,5 +47,9 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:5000/donation/${params.id}`),
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
   },
 ]);
