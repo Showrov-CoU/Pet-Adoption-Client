@@ -1,5 +1,27 @@
+import { useEffect, useState } from "react";
+import Pets from "../Pets/Pets";
+import axios from "axios";
+// import usePets from "../../../Hooks/usePets";
+// import Pets from "../Pets/Pets";
+
 const PetListBanner = () => {
-  const pets = ["Dog", "Cat", "Bird", "Duck", "Horse", "Rabbit"];
+  const petsArray = ["Dog", "Cat", "Bird", "Duck", "Horse", "Rabbit"];
+  const [pets, setPets] = useState([]);
+  const [category, setCategory] = useState("");
+  const [searchKeyword, setSearchKeyword] = useState("");
+
+  // const [petdata] = usePets();
+  // setPets(petdata);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/pets?category=${category}`)
+      .then((res) => setPets(res.data));
+  }, [category]);
+
+  const handlePet = (pet) => {
+    setCategory(pet.toLowerCase());
+  };
+
   return (
     <section className="bg-white dark:bg-gray-900 mt-20">
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
@@ -47,10 +69,10 @@ const PetListBanner = () => {
                 className="py-2 text-sm text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownHoverButton"
               >
-                {pets.map((pet) => (
+                {petsArray.map((pet) => (
                   <li key={pet}>
                     <button
-                      href="#"
+                      onClick={() => handlePet(pet)}
                       className="w-full text-start px-4 py-2 hover:bg-primary hover:text-white"
                     >
                       {pet}
@@ -105,6 +127,8 @@ const PetListBanner = () => {
           </div>
         </div>
       </div>
+
+      <Pets pets={pets}></Pets>
     </section>
   );
 };
