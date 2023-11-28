@@ -9,6 +9,7 @@ export default {
     extend: {
       colors: {
         primary: "#57a538",
+        primaryDeep: "#4bc21c",
       },
       fontFamily: {
         lobster: ["Lobster Two", "sans-serif"],
