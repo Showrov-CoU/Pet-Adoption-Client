@@ -25,7 +25,10 @@ const PetAdopt = ({ pet }) => {
 
     const adoptedUserInfo = {
       name,
+      userImage: user?.photoURL,
       petid: pet._id,
+      petName: pet.name,
+      image: pet.image,
       email,
       phone,
       address,

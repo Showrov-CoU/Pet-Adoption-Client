@@ -1,9 +1,9 @@
 import DonationCard from "../../../Components/DonationCard";
-import useDonations from "../../../Hooks/useDonation";
+import useDonation from "../../../Hooks/useDonation";
 import DonationBanner from "../DonationBanner/DonationBanner";
 
 const Donation = () => {
-  const [donations] = useDonations();
+  const [donations] = useDonation();
   return (
     <div>
       <DonationBanner></DonationBanner>

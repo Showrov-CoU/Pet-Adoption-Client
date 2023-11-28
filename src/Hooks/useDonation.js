@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "./useAxiosPublic";
 
-const useDonations = () => {
+const useDonation = () => {
   const axiosPublic = useAxiosPublic();
 
   const {
@@ -18,4 +18,4 @@ const useDonations = () => {
   return [donations, isLoading, refetch];
 };
 
-export default useDonations;
+export default useDonation;

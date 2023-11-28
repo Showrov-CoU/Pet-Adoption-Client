@@ -6,9 +6,11 @@ import { useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import toast from "react-hot-toast";
+import OthersDonate from "./OthersDonate";
 
 const Donation = ({ donate }) => {
   const axiosPublic = useAxiosPublic();
+
   const { user } = useContext(AuthContext);
   const [openModal, setOpenModal] = useState(false);
   const nameInputRef = useRef(null);
@@ -20,6 +22,7 @@ const Donation = ({ donate }) => {
 
     const myDonationInfo = {
       name,
+      userImage: user?.photoURL,
       amount,
       petName: donate.name,
       Dname: donate.Dname,
@@ -107,24 +110,6 @@ const Donation = ({ donate }) => {
                     required
                   />
                 </div>
-                {/* <div>
-                  <div className="mb-2 block">
-                    <Label htmlFor="phone" value="Your Phone Number" />
-                  </div>
-                  <TextInput
-                    id="phone"
-                    type="text"
-                    ref={phoneRef}
-                    name="phone"
-                    required
-                  />
-                </div>
-                <div>
-                  <div className="mb-2 block">
-                    <Label htmlFor="address" value="Your Location" />
-                  </div>
-                  <TextInput id="address" type="text" ref={addRef} required />
-                </div> */}
 
                 <div className="w-full">
                   <Button
@@ -132,7 +117,7 @@ const Donation = ({ donate }) => {
                     className="text-white font-bold"
                     gradientMonochrome="lime"
                   >
-                    Submit
+                    Donation Submit
                   </Button>
                 </div>
               </div>
@@ -141,7 +126,7 @@ const Donation = ({ donate }) => {
         </div>
       </div>
 
-      {/* <Othersdonate></Othersdonate> */}
+      <OthersDonate></OthersDonate>
     </div>
   );
 };
