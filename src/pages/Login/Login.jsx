@@ -23,7 +23,7 @@ const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
 
   const handleLogin = (data) => {
-    console.log(data);
+
     signIn(data.email, data.password)
       .then((res) => {
         console.log(res.user);

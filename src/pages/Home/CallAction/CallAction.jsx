@@ -7,7 +7,7 @@ const CallAction = () => {
     fetch("/cta.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setActionData(data);
       });
   }, []);

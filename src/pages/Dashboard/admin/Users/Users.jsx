@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./../../../../Hooks/useAxiosSecure";
-import { FaUsers } from "react-icons/fa";
+import { FaCheckCircle, FaUsers } from "react-icons/fa";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { Button } from "flowbite-react";
+import Swal from "sweetalert2";
 
 const Users = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: users = [] } = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
@@ -15,16 +16,44 @@ const Users = () => {
   });
 
   const handleDeleteUser = (user) => {
-    axiosSecure.delete(`/users/${user._id}`).then((res) => {
-      console.log(res.data);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#57a538",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/users/${user._id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
     });
-    console.log(user);
   };
 
   const makeAdmin = (user) => {
-    console.log(user);
+    // console.log(user);
     axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
       console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${user.name} is an Admin Now!`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
     });
   };
 
@@ -139,9 +168,18 @@ const Users = () => {
                   </div>
                 </th>
                 <td className="px-6 py-4">
-                  <Button onClick={makeAdmin} gradientMonochrome="lime">
-                    <FaUsers size={20}></FaUsers>
-                  </Button>
+                  {user.role === "admin" ? (
+                    <span className=" flex items-center gap-1 text-primary font-semibold">
+                      Admin <FaCheckCircle></FaCheckCircle>
+                    </span>
+                  ) : (
+                    <Button
+                      onClick={() => makeAdmin(user)}
+                      gradientMonochrome="lime"
+                    >
+                      <FaUsers size={20}></FaUsers>
+                    </Button>
+                  )}
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex items-center">

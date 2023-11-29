@@ -70,7 +70,7 @@ const NavBar = () => {
             </span>
           )}
         </NavLink>
-        <NavLink>
+        <p>
           {user ? (
             <Link
               to="/login"
@@ -87,7 +87,7 @@ const NavBar = () => {
               Login
             </Link>
           )}
-        </NavLink>
+        </p>
       </Navbar.Collapse>
     </Navbar>
   );
