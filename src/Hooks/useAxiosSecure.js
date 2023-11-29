@@ -24,14 +24,13 @@ const useAxiosSecure = () => {
 
   axiosSecure.interceptors.response.use(
     function (response) {
-      console.log(response);
+      //   console.log(response);
       return response;
     },
     function (error) {
-      console.log(error);
+      //   console.log(error);
       const status = error.response.status;
       if (status === 401 || status === 403) {
-        // console.log("jdjdkdkfkfkjrkjfkrncrk");
         logOut()
           .then((res) => console.log(res))
           .catch((error) => console.log(error.meaasge));
