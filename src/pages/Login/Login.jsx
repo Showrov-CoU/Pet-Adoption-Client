@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Login = () => {
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -14,6 +16,9 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const { signIn, googleSignIn } = useContext(AuthContext);
 
@@ -30,8 +35,7 @@ const Login = () => {
           timer: 1500,
         });
         reset();
-        //navigate(from, { replace: true });
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.log(err.message);
@@ -59,6 +63,15 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         console.log(result.user);
+        const userInfo = {
+          name: result.user?.displayName,
+          email: result.user?.email,
+          image: result.user?.photURL,
+        };
+
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+        });
         Swal.fire({
           position: "top-end",
           icon: "success",

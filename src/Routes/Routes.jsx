@@ -8,6 +8,15 @@ import PetDetails from "../pages/PetDetails/PetDetails";
 import Donation from "../pages/Donation/Donation/Donation";
 import DonationDetails from "../pages/DonationDetails/DonationDetails/DonationDetails";
 import Dashboard from "../Layout/Dashboard";
+import PrivateRoute from "./PrivateRoute";
+import AddPet from "../pages/Dashboard/AddPet/AddPet";
+import MyAddPet from "../pages/Dashboard/MyAddPet/MyAddPet";
+import AdoptionReq from "../pages/Dashboard/AdoptionReq/AdoptionReq";
+import CreateDonationCamp from "../pages/Dashboard/CreateDonationCamp/CreateDonationCamp";
+import MyDonationCamp from "../pages/Dashboard/MyDonationCamp/MyDonationCamp";
+import MyDonations from "../pages/Dashboard/MyDonations/MyDonations";
+import Users from "../pages/Dashboard/admin/Users/Users";
+import AllPets from "../pages/Dashboard/admin/AllPets/AllPets";
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +41,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/petDetails/:id",
-        element: <PetDetails></PetDetails>,
+        element: (
+          <PrivateRoute>
+            <PetDetails></PetDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/petDetails/${params.id}`),
       },
@@ -42,7 +55,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/donationDetails/:id",
-        element: <DonationDetails></DonationDetails>,
+        element: (
+          <PrivateRoute>
+            <DonationDetails></DonationDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/donation/${params.id}`),
       },
@@ -50,6 +67,45 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard/addpet",
+        element: <AddPet></AddPet>,
+      },
+      {
+        path: "/dashboard/myaddpet",
+        element: <MyAddPet></MyAddPet>,
+      },
+      {
+        path: "/dashboard/adoptionrequest",
+        element: <AdoptionReq></AdoptionReq>,
+      },
+      {
+        path: "/dashboard/createdonationcamp",
+        element: <CreateDonationCamp></CreateDonationCamp>,
+      },
+      {
+        path: "/dashboard/mydonationcamp",
+        element: <MyDonationCamp></MyDonationCamp>,
+      },
+      {
+        path: "/dashboard/mydonation",
+        element: <MyDonations></MyDonations>,
+      },
+      // admin routes
+      {
+        path: "/dashboard/users",
+        element: <Users></Users>,
+      },
+      {
+        path: "/dashboard/allpets",
+        element: <AllPets></AllPets>,
+      },
+    ],
   },
 ]);

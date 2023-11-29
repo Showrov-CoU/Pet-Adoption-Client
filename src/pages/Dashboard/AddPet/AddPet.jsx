@@ -1,11 +1,5 @@
-import React from 'react';
-
 const AddPet = () => {
-    return (
-        <div>
-            add
-        </div>
-    );
+  return <div>addPet</div>;
 };
 
 export default AddPet;
