@@ -115,7 +115,7 @@ const Login = () => {
                   />
                   {errors.email && (
                     <span className="text-red-600 pt-1">
-                      missing your email
+                      Missing your email
                     </span>
                   )}
                 </div>
@@ -127,10 +127,9 @@ const Login = () => {
                     type="password"
                     name="password"
                     {...register("password", { required: true })}
-                    id="password"
+                    
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-                    required=""
                   />
                   {errors.email && (
                     <span className="text-red-600 pt-1">
