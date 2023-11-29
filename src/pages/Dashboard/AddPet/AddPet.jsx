@@ -1,27 +1,72 @@
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import useAuth from "../../../Hooks/useAuth";
 
 const imageHostingKey = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const imageHostingApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
 
 const AddPet = () => {
+  const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const {
     register,
     handleSubmit,
-
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    const day = String(currentDate.getDate()).padStart(2, "0");
+
+    let hour = currentDate.getHours();
+    const minutes = String(currentDate.getMinutes()).padStart(2, "0");
+    const ampm = hour >= 12 ? "PM" : "AM";
+
+    hour = hour % 12;
+    hour = hour || 12;
+
     const imageFile = { image: data.image[0] };
     const res = await axiosPublic.post(imageHostingApi, imageFile, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
-    console.log(res.data);
+    const url = res.data.data.url;
+    if (res.data.success) {
+      const petDetails = {
+        name: data.name,
+        image: url,
+        // image: res?.data?.display_url,
+        email: user.email,
+        category: data.category,
+        location: data.location,
+        age: parseInt(data.age),
+        shortDesc: data.shortDesc,
+        date: `${year}-${month}-${day}`,
+        time: `${hour}:${minutes} ${ampm}`,
+        adopted: false,
+      };
+      console.log(petDetails);
+      const res = await axiosSecure.post("/addpet", petDetails);
+      //console.log(res.data);
+      if (res.data._id) {
+        reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${data.name} is added to the petList`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    }
   };
 
   return (
