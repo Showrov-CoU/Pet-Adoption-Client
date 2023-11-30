@@ -59,6 +59,9 @@ const SideBar = () => {
             <Link to="/dashboard/allpets">
               <Sidebar.Item icon={HiMenuAlt2}>All Pets</Sidebar.Item>
             </Link>
+            <Link to="/dashboard/alldonations">
+              <Sidebar.Item icon={HiShoppingBag}>All Donations</Sidebar.Item>
+            </Link>
           </Sidebar.ItemGroup>
         )}
       </Sidebar.Items>
