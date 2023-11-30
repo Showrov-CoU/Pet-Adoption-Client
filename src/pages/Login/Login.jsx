@@ -23,7 +23,6 @@ const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
 
   const handleLogin = (data) => {
-
     signIn(data.email, data.password)
       .then((res) => {
         console.log(res.user);
@@ -35,7 +34,8 @@ const Login = () => {
           timer: 1500,
         });
         reset();
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
+        navigate("/");
       })
       .catch((err) => {
         console.log(err.message);
@@ -80,7 +80,7 @@ const Login = () => {
           timer: 1500,
         });
         reset();
-        //navigate(from, { replace: true });
+        // navigate(from, { replace: true });
         navigate("/");
       })
       .catch((err) => console.log(err.message));
@@ -127,7 +127,6 @@ const Login = () => {
                     type="password"
                     name="password"
                     {...register("password", { required: true })}
-                    
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                   />
