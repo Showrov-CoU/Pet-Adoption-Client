@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 const Category = ({ category }) => {
   const { name, description, image } = category;
@@ -10,12 +11,14 @@ const Category = ({ category }) => {
         <div className="intro px-2 h-[45px] w-[350px] absolute z-10 bottom-0 bg-gradient-to-r from-neutral-200 via-gray-300 to-zinc-400 opacity-90">
           <h1 className=" w-full m-2 font-bold text-2xl capitalize">{name}</h1>
           <p className="text text-justify w-full">{description}</p>
-          <button
-            type="button"
-            className=" px-5 py-2 mr-3 text-base font-medium text-center text-white rounded-lg bg-[#57a538] hover:bg-[#4bc21c]"
-          >
-            See Pets
-          </button>
+          <Link to="/petList">
+            <button
+              type="button"
+              className=" px-5 py-2 mr-3 text-base font-medium text-center text-white rounded-lg bg-[#57a538] hover:bg-[#4bc21c]"
+            >
+              See Pets
+            </button>
+          </Link>
         </div>
       </div>
     </>
