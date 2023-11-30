@@ -23,17 +23,17 @@ const CreateDonationCamp = () => {
 
   const onSubmit = async (data) => {
     // console.log(data);
-    // const currentDate = new Date();
-    // const year = currentDate.getFullYear();
-    // const month = String(currentDate.getMonth() + 1).padStart(2, "0");
-    // const day = String(currentDate.getDate()).padStart(2, "0");
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    const day = String(currentDate.getDate()).padStart(2, "0");
 
-    // let hour = currentDate.getHours();
-    // const minutes = String(currentDate.getMinutes()).padStart(2, "0");
-    // const ampm = hour >= 12 ? "PM" : "AM";
+    let hour = currentDate.getHours();
+    const minutes = String(currentDate.getMinutes()).padStart(2, "0");
+    const ampm = hour >= 12 ? "PM" : "AM";
 
-    // hour = hour % 12;
-    // hour = hour || 12;
+    hour = hour % 12;
+    hour = hour || 12;
 
     const imageFile = { image: data.image[0] };
     const res = await axiosPublic.post(imageHostingApi, imageFile, {
@@ -54,6 +54,8 @@ const CreateDonationCamp = () => {
         longDesc: data.LongDesc,
         maxAmount: Number(data.maxamount),
         donatedAmount: Number(data.donateamount),
+        date: `${year}-${month}-${day}`,
+        time: `${hour}:${minutes} ${ampm}`,
       };
       // console.log(donationDetails);
       const res = await axiosSecure.post("/createdonate", donationDetails);

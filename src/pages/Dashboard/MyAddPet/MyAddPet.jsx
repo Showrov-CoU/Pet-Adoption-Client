@@ -79,6 +79,7 @@ const MyAddPet = () => {
       const res = await axiosSecure.patch(`/updatepet/${petId}`, petDetails);
       console.log(res.data);
       if (res.data.modifiedCount >= 0) {
+        refetch();
         reset();
         Swal.fire({
           position: "top-end",
