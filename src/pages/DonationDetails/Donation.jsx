@@ -17,18 +17,17 @@ const Donation = ({ donate }) => {
   const amountInputRef = useRef(null);
 
   const handleForm = () => {
-    const name = user?.displayName || nameInputRef.current.value;
+    // const name = user?.displayName || nameInputRef.current.value;
     const amount = amountInputRef.current.value;
 
     const myDonationInfo = {
-      name,
-      userImage: user?.photoURL,
-      amount,
+      email: user.email,
       petName: donate.name,
       Dname: donate.Dname,
       image: donate.image,
+      amount,
     };
-    console.log(myDonationInfo);
+    // console.log(myDonationInfo);
 
     axiosPublic.post("/mydonation", myDonationInfo).then((res) => {
       console.log(res.data);
