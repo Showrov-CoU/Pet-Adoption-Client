@@ -254,7 +254,6 @@ const MyAddPet = () => {
                         setOpenModal(true);
                         setPetId(myPet._id);
                       }}
-                      // onClick={() => }
                       gradientMonochrome="lime"
                     >
                       <FaEdit size={16}></FaEdit>
