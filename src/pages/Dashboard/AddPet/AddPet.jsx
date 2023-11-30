@@ -70,7 +70,7 @@ const AddPet = () => {
   };
 
   return (
-    <div className="overflow-y-auto overflow-x-hidden justify-center items-center w-full md:inset-0  md:h-full">
+    <div className=" overflow-y-auto overflow-x-hidden justify-center items-center w-full md:inset-0  md:h-full">
       <div className="w-full p-4 h-full md:h-auto">
         <div className=" p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
           <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">

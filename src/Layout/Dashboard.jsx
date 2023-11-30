@@ -11,7 +11,7 @@ const Dashboard = () => {
         <div className="mt-16 lg:mt-[4.6rem]">
           <SideBar></SideBar>
         </div>
-        <div className="mt-5 lg:mt-[6rem] flex-1">
+        <div className="mt-5 lg:mt-[5rem] flex-1">
           <Outlet></Outlet>
         </div>
       </div>
