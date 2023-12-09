@@ -1,7 +1,6 @@
-## [Live Link](https://pet-adoption-2a603.web.app/)
+## Important Info
 ### Live link: [https://pet-adoption-2a603.web.app/](https://pet-adoption-2a603.web.app/)
 ### Server link: [https://github.com/Showrov-CoU/Pet-Adoption-Server](https://github.com/Showrov-CoU/Pet-Adoption-Server)
-
 ### Admin Email: **admin@gmail.com**
 ### Admin Password: **Admin1!**
 
