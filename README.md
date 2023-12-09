@@ -28,3 +28,6 @@ backend maintainability.
 `4.` Responsive Design
 
 Ensure that your website is responsive and works well on various devices and screen sizes, such as smartphones, tablets, and desktop computers.
+
+## Technology Used
+- TailwindCSS, Flowbite-React, ReactJS, Firebase, NodeJS, ExpressJS, Mongoose.
