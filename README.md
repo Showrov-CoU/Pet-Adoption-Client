@@ -1,9 +1,9 @@
 ## [Live Link](https://pet-adoption-2a603.web.app/)
-Live link: [https://pet-adoption-2a603.web.app/](https://pet-adoption-2a603.web.app/)
-Server link: [https://github.com/Showrov-CoU/Pet-Adoption-Server](https://github.com/Showrov-CoU/Pet-Adoption-Server)
+### Live link: [https://pet-adoption-2a603.web.app/](https://pet-adoption-2a603.web.app/)
+### Server link: [https://github.com/Showrov-CoU/Pet-Adoption-Server](https://github.com/Showrov-CoU/Pet-Adoption-Server)
 
-# Admin Email **admin@gmail.com**
-# Admin Password **Admin1!**
+### Admin Email: **admin@gmail.com**
+### Admin Password: **Admin1!**
 
 ## Features and Functionality
 
@@ -25,4 +25,3 @@ backend maintainability.
 `4.` Responsive Design
 
  Ensure that your website is responsive and works well on various devices and screen sizes, such as smartphones, tablets, and desktop computers.
-
