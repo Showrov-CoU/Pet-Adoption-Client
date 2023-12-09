@@ -15,7 +15,7 @@ const PetListBanner = () => {
   // setPets(petdata);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/pets?category=${category}`)
+      .get(`https://pet-adopter.vercel.app/pets?category=${category}`)
       .then((res) => setPets(res.data));
   }, [category]);
 

@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/petDetails/${params.id}`),
+          fetch(`https://pet-adopter.vercel.app/petDetails/${params.id}`),
       },
       {
         path: "/donation",
@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/donation/${params.id}`),
+          fetch(`https://pet-adopter.vercel.app/donation/${params.id}`),
       },
     ],
   },
